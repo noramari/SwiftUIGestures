@@ -11,6 +11,7 @@
 		47D61E782A077FA30021A3EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D61E772A077FA30021A3EB /* ContentView.swift */; };
 		47D61E7A2A077FA60021A3EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D61E792A077FA60021A3EB /* Assets.xcassets */; };
 		47D61E7D2A077FA60021A3EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D61E7C2A077FA60021A3EB /* Preview Assets.xcassets */; };
+		47D61E882A078E870021A3EB /* InfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D61E872A078E870021A3EB /* InfoPanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		47D61E772A077FA30021A3EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		47D61E792A077FA60021A3EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D61E7C2A077FA60021A3EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		47D61E872A078E870021A3EB /* InfoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +53,10 @@
 		47D61E742A077FA30021A3EB /* SwiftUIGestures */ = {
 			isa = PBXGroup;
 			children = (
+				47D61E752A077FA30021A3EB /* SwiftUIGesturesApp.swift */,
 				47D61E862A0781980021A3EB /* Data */,
 				47D61E852A0781910021A3EB /* Model */,
 				47D61E842A0781890021A3EB /* View */,
-				47D61E752A077FA30021A3EB /* SwiftUIGesturesApp.swift */,
 				47D61E832A0781740021A3EB /* Screen */,
 				47D61E792A077FA60021A3EB /* Assets.xcassets */,
 				47D61E7B2A077FA60021A3EB /* Preview Content */,
@@ -81,6 +83,7 @@
 		47D61E842A0781890021A3EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47D61E872A078E870021A3EB /* InfoPanelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				47D61E782A077FA30021A3EB /* ContentView.swift in Sources */,
 				47D61E762A077FA30021A3EB /* SwiftUIGesturesApp.swift in Sources */,
+				47D61E882A078E870021A3EB /* InfoPanelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
