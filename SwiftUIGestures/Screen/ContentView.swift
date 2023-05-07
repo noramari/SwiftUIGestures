@@ -12,13 +12,17 @@ struct ContentView: View {
     @State private var isAnimating: Bool = false
     @State private var imageScale: CGFloat = 1
     @State private var imageOffset: CGSize = .zero // same as CGSize(width: 0, height: 0)
+    @State private var isDrawerOpen: Bool = false
+    
+    let pages: [Page] = pagesData
+    @State private var pageIndex: Int = 1
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color.clear
                 
-                Image("magazine-front-cover")
+                Image(currentPage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(10)
@@ -81,6 +85,7 @@ struct ContentView: View {
                     .padding(.top, 30)
                 , alignment: .top
             )
+            //MARK: - Controls
             .overlay(
                 Group {
                     HStack {
@@ -128,6 +133,47 @@ struct ContentView: View {
                     .padding(.bottom, 30)
                 , alignment: .bottom
             )
+            //MARK: - Drawer
+            .overlay(
+                HStack(spacing: 12) {
+                    Image(systemName: isDrawerOpen ? "chevron.compact.right" : "chevron.compact.left")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 40)
+                        .padding(8)
+                        .foregroundStyle(.secondary)
+                        .onTapGesture {
+                            withAnimation(.easeOut) {
+                                isDrawerOpen.toggle()
+                            }
+                        }
+                    
+                    ForEach(pages) { item in
+                        Image(item.thumbnailName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80)
+                            .cornerRadius(8)
+                            .shadow(radius: 4)
+                            .opacity(isDrawerOpen ? 1 : 0)
+                            .animation(.easeOut(duration: 0.5), value: isDrawerOpen)
+                            .onTapGesture {
+                                isAnimating = true
+                                pageIndex = item.id
+                            }
+                    }
+                    
+                    Spacer()
+                }
+                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(12)
+                    .opacity(isAnimating ? 1 : 0)
+                    .frame(width: 260)
+                    .padding(.top, UIScreen.main.bounds.height / 12)
+                    .offset(x: isDrawerOpen ? 20 : 215)
+                , alignment: .topTrailing
+            )
         }
         .navigationViewStyle(.stack)
     }
@@ -137,6 +183,10 @@ struct ContentView: View {
             imageScale = 1
             imageOffset = .zero
         }
+    }
+    
+    func currentPage() -> String {
+        return pages[pageIndex - 1].imageName
     }
 }
 
